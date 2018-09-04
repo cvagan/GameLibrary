@@ -1,0 +1,56 @@
+﻿@model GameLibrary.Models.DeveloperViewModels.DeveloperViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h2>Add Developer</h2>
+<br />
+
+<form asp-action="Create" enctype="multipart/form-data" id="mainForm">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="row form-group">
+        <div class="col-sm-1">
+            <label asp-for="Developer.Name"></label>
+        </div>
+        <div class="col-sm-4">
+            <input asp-for="Developer.Name" class="form-control" />
+        </div>
+        <span asp-validation-for="Developer.Name" class="text-danger"></span>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-1">
+            <label asp-for="Developer.Created"></label>
+        </div>
+        <div class="col-sm-4">
+            <input asp-for="Developer.Created" class="form-control" />
+        </div>
+        <span asp-validation-for="Developer.Created" class="text-danger"></span>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-1">
+            <label>Image</label>
+        </div>
+        <div class="col-sm-4">
+            <input type="file" name="DeveloperImage" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-1">
+            <label asp-for="Developer.IsActive"></label>
+        </div>
+        <div class="col-sm-4">
+            <input asp-for="Developer.IsActive" />
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" class="btn btn-primary" value="Create" />
+        <a asp-action="Index" class="btn btn-default">Return</a>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

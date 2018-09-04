@@ -1,0 +1,57 @@
+﻿@model GameLibrary.Models.GameViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<h2>@Model.Game.Name</h2>
+<br />
+
+<div class="row">
+    <div class="col-sm-8">
+        <fieldset disabled>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label asp-for="Game.Name"></label>
+                </div>
+                <div class="">
+                    <input asp-for="Game.Name" class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label asp-for="Game.Year"></label>
+                </div>
+                <div class="">
+                    <input asp-for="Game.Year" class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label asp-for="Game.Rating"></label>
+                </div>
+                <div class="">
+                    <input asp-for="Game.Rating" class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label>Developer</label>
+                </div>
+                <div class="">
+                    <a asp-controller="Developer" asp-action="Details" asp-route-id="@Model.Game.DeveloperId">@Model.Game.Developer.Name</a>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-sm-4">
+        <img class="img-thumbnail" src=@Model.Game.PhotoUrl style="height:200px; width: auto;" />
+    </div>
+</div>
+<div class="row">
+    <a asp-action="Index" class="btn btn-default">Return</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

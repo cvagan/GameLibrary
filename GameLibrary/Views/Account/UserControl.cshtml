@@ -1,0 +1,17 @@
+﻿@model  IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "UserControl";
+}
+
+<h2>UserControl</h2>
+
+<form asp-action="UserDelete">
+    <select name="userId">
+        @foreach (var user in Model)
+        {
+            <option value="@user.Id">@user.DisplayName</option>
+        }
+    </select>
+    <input type="submit" class="btn btn-danger btn-block" value="Delete" />
+    
+</form>

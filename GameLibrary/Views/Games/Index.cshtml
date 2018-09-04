@@ -1,0 +1,55 @@
+﻿@model GameLibrary.Models.GameViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+
+<h2>Games</h2>
+
+<br />
+
+@Html.Partial("_CreatePartial")
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game.Developer)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Games)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(i => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(i => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(i => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(i => item.Developer.Name)
+            </td>
+            <td>
+                @Html.Partial("_ControlButtons", item.Id)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,46 @@
+﻿@model GameLibrary.Models.DeveloperViewModels.DeveloperViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h2>@Model.Developer.Name</h2>
+<br />
+
+<div class="row">
+    <div class="col-sm-8">
+        <fieldset disabled>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label asp-for="Developer.Name"></label>
+                </div>
+                <div>
+                    <input asp-for="Developer.Name" class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label asp-for="Developer.Created"></label>
+                </div>
+                <div>
+                    <input asp-for="Developer.Created" class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label asp-for="Developer.IsActive"></label>
+                </div>
+                <div>
+                    <input asp-for="Developer.IsActive" />
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-sm-4">
+        <img class="img-thumbnail" src="@Model.Developer.PhotoUrl" />
+    </div>
+</div>
+
+<div class="row">
+    <a asp-action="Index" class="btn btn-default">Return</a>
+</div>

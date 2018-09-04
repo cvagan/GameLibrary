@@ -1,0 +1,54 @@
+﻿@model GameLibrary.Models.GameViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h2>Remove Game</h2>
+<br />
+
+@Html.Partial("_DeleteModalPartial")
+
+<form asp-action="Delete" id="mainForm">
+    <input type="hidden" value="@Model.Game.Id" name="formId" />
+    <fieldset disabled>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label asp-for="Game.Name"></label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Game.Name" class="form-control" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label asp-for="Game.Year"></label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Game.Year" class="form-control" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label asp-for="Game.Rating"></label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Game.Rating" class="form-control" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label>Developer</label>
+            </div>
+            <div class="col-sm-4">
+                <select asp-for="Game.DeveloperId" class="form-control">
+                    <option>@Model.Game.Developer.Name</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<div class="row">
+    <button class="btn btn-danger" data-target="#formModal" data-toggle="modal">Delete</button>
+    <a asp-action="Index" class="btn btn-default">Return</a>
+</div>

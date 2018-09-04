@@ -1,0 +1,13 @@
+﻿
+@if (TempData["TempDataProperty-Message"] != null)
+{
+    var message = TempData["TempDataProperty-Message"].ToString();
+    var messageType = TempData["TempDataProperty-MessageType"].ToString();
+
+    <div class="alert alert-@messageType fade show mt-3">
+        @message
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}

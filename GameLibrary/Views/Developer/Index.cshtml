@@ -1,0 +1,49 @@
+﻿@model GameLibrary.Models.DeveloperViewModels.DeveloperViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+
+<h2>Developers</h2>
+
+<br />
+
+@Html.Partial("_CreatePartial")
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Developer.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Developer.Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Developer.IsActive)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.DeveloperList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(i => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(i => item.Created)
+                </td>
+                <td>
+                    @(item.IsActive ? "In business" : "Out of business")
+                </td>
+                <td>
+                    @Html.Partial("_ControlButtons", item.Id)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
